@@ -1,11 +1,12 @@
+add_library('pdf')
   
 oldX = 0
 oldY = 0
 
 def setup():
+    beginRecord(PDF, "poster###.pdf");
     size(400,600)
-    background(255,0,0)
-    
+    background(255,0,0)    
     strokeCap(SQUARE)
     # strokeCap(PROJECT)
     # strokeJoin(ROUND)
@@ -18,6 +19,10 @@ def draw():
         strokeWeight(d+10)      
         line(oldX, oldY,mouseX, mouseY)
         oldX,oldY = mouseX, mouseY
+    if keyPressed:
+        if key=='s':
+            endRecord()
+            exit()        
         
 def mousePressed():
     global oldX,oldY
