@@ -1,17 +1,14 @@
-# add_library('pdf')
+xoff = 0.0
 
-
-def setup():
-    # beginRecord(PDF, "poster###.pdf");
-    size(400,600)
-    background(255,0,0)
+def setup():    
+    size(1000,200)
+    background(0)
+    stroke(0,0)
     
-def draw():
-    if mousePressed:
-        stroke(0,0)
-        fill(random(255))
-        circle(mouseX,mouseY,random(100))
-    if keyPressed:
-        if key=='s':
-            # endRecord()
-            exit()
+def draw():    
+    global xoff
+    xoff = xoff+.01    
+    if mousePressed:        
+        fill(noise(xoff)*255,noise(xoff+1)*255,noise(xoff+2)*255)
+        circle(mouseX, mouseY, noise(xoff)*100)
+        

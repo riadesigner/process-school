@@ -3,7 +3,7 @@ add_library('pdf')
 
 def setup():
     beginRecord(PDF, "poster###.pdf");
-    size(400,600)
+    size(1000,200)
     background(255,0,0)
     
 def draw():
